@@ -3,14 +3,11 @@
     public class User
     {
         public int Id { get; set; }
-        public string Name { get; private set; }
-        public string Username { get; private set; }
+        public string? Name { get;  set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public List<Message> Messages { get; } = new List<Message>();
 
-        public User(string name, string username)
-        {
-            Name = name;
-            Username = username;
-        }
     }
 }
