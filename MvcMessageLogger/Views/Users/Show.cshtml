@@ -1,7 +1,8 @@
 ﻿@model User
 
 <h1>@Model.Name</h1>
-@if(Model.LoggedIn){
+@if(Model.LoggedIn)
+{
     <a href="/users/@Model.Id/messages/new"></a>
 }
 else
