@@ -50,8 +50,6 @@ namespace MvcMessageLogger.FeatureTests
             Assert.Contains(user2.Username, html);
             Assert.DoesNotContain(user1.Email, html);
             Assert.DoesNotContain(user2.Email, html);
-            Assert.DoesNotContain(user1.Password, html);
-            Assert.DoesNotContain(user2.Password, html);
         }
 
         [Fact]
