@@ -13,7 +13,7 @@ namespace MvcMessageLogger.Controllers
         }
         public IActionResult Index()
         {
-            var users = _context.Users;
+            var users = _context.Users.ToList();
             return View(users);
         }
         public IActionResult New()

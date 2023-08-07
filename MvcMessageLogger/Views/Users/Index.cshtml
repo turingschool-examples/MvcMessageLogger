@@ -1,0 +1,9 @@
+﻿@model List<User>
+<h1>Users</h1>
+
+@foreach(var user in Model)
+{
+    <h6>@user.Username, @user.Name</h6>
+}
+
+<p><a href="/users/new">Sign Up</a></p>
