@@ -56,7 +56,7 @@ namespace MvcMessageLogger.FeatureTests
         public async Task New_ReturnsViewWithNewUserForm()
         {
             var client = _factory.CreateClient();
-            var response = await client.GetAsync("/users");
+            var response = await client.GetAsync("/users/new");
             response.EnsureSuccessStatusCode();
             var html = await response.Content.ReadAsStringAsync();
 

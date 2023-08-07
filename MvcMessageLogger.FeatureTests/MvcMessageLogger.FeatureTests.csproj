@@ -7,7 +7,7 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <StartupObject>RecordCollection.FeatureTests.Program</StartupObject>
+    <StartupObject>MvcMessageLogger.FeatureTests.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

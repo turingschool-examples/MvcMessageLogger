@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using MvcMessageLogger.Controllers;
 using MvcMessageLogger.DataAccess;
 
-namespace RecordCollection.FeatureTests
+namespace MvcMessageLogger.FeatureTests
 {
     public class Program
     {
