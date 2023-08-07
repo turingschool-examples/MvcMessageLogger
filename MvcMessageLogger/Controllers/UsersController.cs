@@ -28,7 +28,7 @@ namespace MvcMessageLogger.Controllers
         {
             _context.Users.Add(user);
             _context.SaveChanges();
-            var userId = user.Id;
+            
 
             return RedirectToAction("Index");
         }
