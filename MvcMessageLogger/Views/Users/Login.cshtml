@@ -1,4 +1,7 @@
-﻿<h1>Login for a user</h1>
+﻿@{
+    bool? failedLogin = ViewData["FailedLogin"] as bool?;
+}
+<h1>Login for a user</h1>
 <form method="post" action="/users/login/">
     <div>
         <label for="Email">Email</label>
@@ -8,6 +11,10 @@
         <label for="Password">Password</label>
         <input type="password" id="Password" name="Password" />
     </div>
+    @if(failedLogin == true)
+    {
+        <p class="text-danger">Email or password not found</p>
+    }
     <div>
         <button type="submit">Submit</button>
     </div>

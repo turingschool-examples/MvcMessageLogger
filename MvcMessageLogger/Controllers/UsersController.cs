@@ -28,8 +28,13 @@ namespace MvcMessageLogger.Controllers
         }
 
             [Route("/users/newaccount")]
-        public IActionResult New()
+        public IActionResult New(string? error)
         {
+            if (error == "true")
+            {
+                ViewData["FailedSignin"] = true;
+
+            }
             return View();
         }
 
@@ -63,13 +68,17 @@ namespace MvcMessageLogger.Controllers
             }
             else
             {
-                return Redirect("/users/newaccount/error");
+                return Redirect("/users/newaccount/?error=true");
             }
         }
 
         [Route("/users/login")]
-        public IActionResult Login()
+        public IActionResult Login(string? error)
         {
+            if(error == "true")
+            {
+                ViewData["FailedLogin"] = true;
+            }
             return View();
         }
 
@@ -99,7 +108,7 @@ namespace MvcMessageLogger.Controllers
             }
             else
             {
-                return Redirect("/users/login/error");
+                return Redirect("/users/login/?error=true");
             }
         }
     }

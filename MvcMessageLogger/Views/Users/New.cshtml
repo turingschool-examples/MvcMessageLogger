@@ -1,4 +1,8 @@
-﻿<h1>Create Account</h1>
+﻿@{
+    bool? failedSignin = ViewData["FailedSignin"] as bool?;
+}
+
+<h1>Create Account</h1>
 <form method="post" action="/users/newaccount">
     <div>
         <label for="UserName">UserName</label>
@@ -12,6 +16,10 @@
         <label for="Password">Password</label>
         <input type="password" id="Password" name="Password" />
     </div>
+    @if(failedSignin == true)
+    {
+        <p class="text-danger">An account with that email address already exists</p>
+    }
     <div>
         <button type="submit">Submit</button>
     </div>
