@@ -39,11 +39,11 @@ namespace MvcMessageLogger.Controllers
         }
 
 
-        [Route("/users/newaccount/error")]
-        public IActionResult NewError()
-        {
-            return View();
-        }
+        //[Route("/users/newaccount/error")]
+        //public IActionResult NewError()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         [Route("/users/newaccount")]
