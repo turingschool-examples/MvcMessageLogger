@@ -1,0 +1,20 @@
+﻿
+@model IEnumerable<User>
+
+<p>Users List</p>
+
+<ul>
+    @foreach (var user in Model)
+    {
+        <li>@user.Username</li>
+    }
+
+</ul>
+<form method="get" action="/users/new">
+    <div class="newbutton">
+
+        <button type="submit">Add User</button>
+
+    </div>
+
+</form>
