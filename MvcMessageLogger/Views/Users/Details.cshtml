@@ -4,10 +4,10 @@
 <h6>@Model.Username</h6>
 
 <form method="post" action="/users/details/@Model.Id/message">
-    <label for="Content">Add a New Message</label>
-    <input type="text" name="Content" id="Content" placeholder="Start typing..."/>
+    <label class="add-message-label" for="Content">Add a New Message</label>
+    <input class="add-message-input" type="text" name="Content" id="Content" placeholder="Start typing..."/>
 
-    <button type="submit">Add Message</button>
+    <button class="add-message-button" type="submit">Add Message</button>
 </form>
 
 <h3>Your Messages</h3>
