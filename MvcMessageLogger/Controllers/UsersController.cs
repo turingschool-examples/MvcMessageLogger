@@ -29,5 +29,29 @@ namespace MvcMessageLogger.Controllers
             _context.SaveChanges();
             return Redirect("/users");
         }
+
+        public IActionResult LogIn(bool? error)
+        {
+            if (error != null)
+            {
+                ViewData["Error"] = true;
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult LogIn(Dictionary<string,string> login)
+        {
+            var redirectString = "/users/login?error=true";
+            var user = _context.Users.Where(u => u.Email == login["Email"]).FirstOrDefault();
+            if (user.PasswordCheck(login["Password"]))
+            {
+                user.LoggedIn = true;
+                _context.Users.Update(user);
+                _context.SaveChanges();
+                redirectString = $"/users/{user.Id}";
+            }
+            return Redirect(redirectString);
+        }
     }
 }
