@@ -1,0 +1,16 @@
+﻿@model List<User> 
+
+<h1>Current Active Users</h1>
+
+@foreach(var e in Model)
+{
+    <form action="/users/details/@e.Id">
+        <button type="submit">Login</button>
+    </form>
+    <h5>@e.Username</h5>
+}
+
+<h3>Don't see your account?</h3>
+<form action="/users/new">
+    <button class="submit" type="submit">Create One!</button>
+</form>
