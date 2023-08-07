@@ -32,7 +32,7 @@ namespace MvcMessageLogger.Controllers
         {
             var user = _context.Users.Where(u =>u.Id == userId).Include(u => u.Messages).First();
             var newMessage = new Message(message.Content);
-            //message.TimeCreated();
+            message.TimeCreated();
             user.Messages.Add(newMessage);
             _context.SaveChanges();
 
