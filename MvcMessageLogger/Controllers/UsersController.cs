@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcMessageLogger.DataAccess;
 using MvcMessageLogger.Models;
 
@@ -52,6 +53,13 @@ namespace MvcMessageLogger.Controllers
                 redirectString = $"/users/{user.Id}";
             }
             return Redirect(redirectString);
+        }
+
+        [Route("/users/{id:int}")]
+        public IActionResult Show(int id)
+        {
+            var user = _context.Users.Where(u => u.Id == id).Include(u => u.Messages).Single();
+            return View(user);
         }
     }
 }
