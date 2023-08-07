@@ -34,8 +34,8 @@ namespace MvcMessageLogger.FeatureTests
             var client = _factory.CreateClient();
             var context = GetDbContext();
 
-            var user1 = new User("John Doe", "jdoe", "john@gmail.com", "abcdefg");
-            var user2 = new User("Jane Doe", "j_doe", "jane@gmail.com", "abdefg");
+            var user1 = new User { Name = "John Doe", Username = "jdoe",Email = "john@gmail.com",Password = "abcdefg" };
+            var user2 = new User { Name = "Jane Doe", Username = "j_doe", Email = "jane@gmail.com", Password = "abdefg" };
             context.Users.Add(user1);
             context.Users.Add(user2);
             context.SaveChanges();
@@ -75,8 +75,8 @@ namespace MvcMessageLogger.FeatureTests
             var client = _factory.CreateClient();
             var context = GetDbContext();
 
-            var user1 = new User("John Doe", "jdoe", "john@gmail.com", "abcdefg");
-            var user2 = new User("Jane Doe", "j_doe", "jane@gmail.com", "abdefg");
+            var user1 = new User { Name = "John Doe", Username = "jdoe", Email = "john@gmail.com", Password = "abcdefg" };
+            var user2 = new User{Name = "Jane Doe", Username = "j_doe", Email = "jane@gmail.com", Password = "abdefg"};
             context.Users.Add(user1);
             context.Users.Add(user2);
             context.SaveChanges();

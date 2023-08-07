@@ -24,6 +24,7 @@ namespace MvcMessageLogger.Controllers
         [Route("/users")]
         public IActionResult Create(User user)
         {
+            user.Password = user.Encrypt(user.Password);
             _context.Users.Add(user);
             _context.SaveChanges();
             return Redirect("/users");

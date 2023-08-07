@@ -3,19 +3,11 @@
     public class User
     {
         public int Id { get; set; }
-        public string Name { get; private set; }
-        public string Username { get; private set; }
-        public string Email { get; private set; }
-        public string Password { get; private set; }
+        public string Name { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public List<Message> Messages { get; } = new List<Message>();
-
-        public User(string name, string username, string email, string password)
-        {
-            Name = name;
-            Username = username;
-            Email = email;
-            Password = Encrypt(password);
-        }
 
         public string Encrypt(string password)
         {
@@ -31,7 +23,7 @@
                 {'h', 8},
                 {'i', 9},
                 {'j', 10},
-                {'j', 11},
+                {'k', 11},
                 {'l', 12},
                 {'m', 13},
                 {'n', 14},
