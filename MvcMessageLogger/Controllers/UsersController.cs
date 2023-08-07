@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcMessageLogger.DataAccess;
 using MvcMessageLogger.Models;
 
@@ -17,6 +18,12 @@ namespace MvcMessageLogger.Controllers
         {
             var users = _context.Users.ToList();
             return View(users);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var u = _context.Users.Include(e => e.Messages).Where(e => e.Id == id).Single();
+            return View(u);
         }
 
         public IActionResult New()

@@ -5,7 +5,9 @@
 @foreach(var e in Model)
 {
     <h5>@e.Username</h5>
-    //<form> log in
+    <form action="/users/details/@e.Id">
+        <button type="submit">Login</button>
+    </form>
 }
 
 <h3>Don't see your account?</h3>
