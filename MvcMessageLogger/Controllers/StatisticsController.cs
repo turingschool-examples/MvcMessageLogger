@@ -13,6 +13,9 @@ namespace MvcMessageLogger.Controllers
         }
         public IActionResult Index()
         {
+            var activeUser = _context.Users.Where(u => u.LoggedIn == true).FirstOrDefault();
+            ViewData["ActiveUser"] = activeUser;
+
             var statistics = new Statistics(_context);
             return View(statistics);
         }
