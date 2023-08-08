@@ -59,5 +59,40 @@ namespace MVCMessageLoggerTest
 			Assert.Contains("Username:", html);
 			Assert.Contains($"<form method=\"post\" action=\"/users/create\">", html);
 		}
+		[Fact]
+		public async Task Show_ReturnsViewWithFormToAddMessage()
+		{
+			var context = GetDbContext();
+			context.Users.Add(new User { Name = "Isiah Worsham", Username = "15iworsham" });
+			context.Messages.Add(new Message("Hi"));
+			context.SaveChanges();
+			var client = _factory.CreateClient();
+
+			var response = await client.GetAsync("/users/1");
+			var html = await response.Content.ReadAsStringAsync();
+
+			response.EnsureSuccessStatusCode();
+			Assert.Contains("Isiah Worsham", html);
+			Assert.Contains("Username:", html);
+			Assert.Contains("Message", html);
+
+
+
+		}
+		[Fact]
+		public async void Index_HasButtonToLogIn()
+		{
+			var context = GetDbContext();
+			context.Users.Add(new User { Name = "Isiah Worsham", Username = "15iworsham" });
+			context.SaveChanges();
+
+			var client = _factory.CreateClient();
+			var response = await client.GetAsync("/users");
+			var html = await response.Content.ReadAsStringAsync();
+
+			response.EnsureSuccessStatusCode();
+			Assert.Contains("Login", html);
+
+		}
 	}
 }

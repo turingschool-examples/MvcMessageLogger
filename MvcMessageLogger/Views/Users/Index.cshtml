@@ -1,8 +1,16 @@
 ﻿@model IEnumerable<User>
 
-<h1>Users</h1>
+<h1>Users (@Model.Count())</h1>
 @foreach (var user in Model)
 {
 	<p>Name: @user.Name</p>
 	<p> Username: @user.Username</p>
+
+    <form method="post" action="/users/@user.Id">
+
+        <button type="submit">Login</button>
+    </form>
 }
+
+
+

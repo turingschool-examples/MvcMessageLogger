@@ -1,0 +1,33 @@
+﻿@model User
+
+<h1>User </h1>
+
+<p>Name: @Model.Name</p>
+
+<p>Username: @Model.Username</p>
+
+<h3>@Model.Username's Messages</h3>
+
+@foreach (var message in Model.Messages)
+{
+    <p>@Model.Username: @message.Content</p>
+}
+@if (Model.Messages == null)
+{
+    
+   <p>Sorry, me so Empty :(</p>
+   
+}
+
+
+<h2>Add New Message Here</h2>
+
+<form method="post" action="/Users/Message/@Model.Id">
+	<div class="form-group">
+		<label for="Content">Add Message:</label>
+		<input type="text" id="Content" name="Content" />
+	</div>
+	<button type="submit">Post</button>
+</form>
+
+
