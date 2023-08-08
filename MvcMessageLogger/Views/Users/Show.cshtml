@@ -1,0 +1,19 @@
+﻿@model User
+
+<h1>@Model.Name</h1>
+
+@if(Model.LoggedIn == true)
+{
+    <a href="/users/@Model.Id/messages/new">Create Message</a>
+}
+else
+{
+    <h5>Not Logged In</h5>
+}
+
+<h3>Messages:</h3>
+@foreach(var message in Model.Messages)
+{
+    <p>@message.Content</p>
+    <p>@message.CreatedAt.ToShortTimeString()<br />@message.CreatedAt.ToShortDateString()</p>
+}
