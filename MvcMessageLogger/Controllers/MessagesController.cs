@@ -17,14 +17,15 @@ namespace MvcMessageLogger.Controllers
         public IActionResult New(int id)
         {
             var user = _context.Users.Find(id);
-            return View(id);
+            return View(user);
         }
 
         [HttpPost]
         [Route("/users/{id:int}/messages")]
-        public IActionResult Create(int id, Message message)
+        public IActionResult Create(int id, string content)
         {
             var user = _context.Users.Where(u => u.Id == id).Include(u => u.Messages).Single();
+            var message = new Message { Content = content };
             message.CreatedAt = DateTime.Now.ToUniversalTime();
             user.Messages.Add(message);
             _context.Users.Update(user);
