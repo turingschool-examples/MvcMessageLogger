@@ -26,7 +26,7 @@ namespace MvcMessageLogger.Controllers
         {
             var user = _context.Users.Where(u => u.Id == id).Include(u => u.Messages).Single();
             var message = new Message { Content = content };
-            message.CreatedAt = DateTime.Now.ToUniversalTime();
+            message.CreatedAt = DateTime.Now.ToUniversalTime().Subtract(new TimeSpan(6, 0, 0));
             user.Messages.Add(message);
             _context.Users.Update(user);
             _context.SaveChanges();
