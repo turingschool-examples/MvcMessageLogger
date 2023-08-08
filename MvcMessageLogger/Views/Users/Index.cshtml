@@ -7,6 +7,14 @@
     @foreach (var user in Model)
     {
         <li>@user.Username</li>
+        <form method="get" action="/users/details/@user.Id">
+            <div class="login">
+
+                <button type="submit">Login</button>
+
+            </div>
+
+        </form>
     }
 
 </ul>

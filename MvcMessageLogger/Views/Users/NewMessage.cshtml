@@ -1,0 +1,13 @@
+﻿@model User
+
+
+<h1>Add message</h1>
+<form method="post" action="/users/@Model.Id/messages">
+    <div>
+        <label for="Content">Content:</label>
+        <input type="content" id="Content" name="Content"/>
+    </div>
+    <div>
+        <button type="submit">Submit Message</button>
+    </div>
+</form>

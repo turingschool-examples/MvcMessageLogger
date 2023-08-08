@@ -1,0 +1,24 @@
+﻿@model User
+
+<h3>User Details</h3>
+
+Username: @Model.Username
+<br />
+<br />
+
+Name: @Model.Name
+<br />
+<br />
+
+
+
+
+Messages:
+<ul>
+    @foreach (var message in Model.Messages)
+    {
+        <li>@Model.Username: @message.Content</li> 
+    }
+</ul>
+
+<a href="/users/@Model.Id/messages/new">Create New Message</a>
