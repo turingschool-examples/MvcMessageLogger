@@ -42,23 +42,23 @@ namespace MvcMessageLogger.Controllers
             return View(user);
         }
 
-        [Route("/users/{userId:int}/messages/new")]
-        public IActionResult NewMessage(int userId)
-        {
-            var user = _context.Users.Where(u => u.Id == userId).Include(u => u.Messages).First();
-            return View(user);
-        }
+        //[Route("/users/{userId:int}/messages/new")]
+        //public IActionResult NewMessage(int userId)
+        //{
+        //    var user = _context.Users.Where(u => u.Id == userId).Include(u => u.Messages).First();
+        //    return View(user);
+        //}
 
-        [HttpPost]
-        [Route("/users/{userId:int}/messages")]
-        public IActionResult CreateMessage(Message message, int userId)
-        {
-            var user = _context.Users.Where(u => u.Id == userId).Include(u => u.Messages).First();
+        //[HttpPost]
+        //[Route("/users/{userId:int}/messages")]
+        //public IActionResult CreateMessage(Message message, int userId)
+        //{
+        //    var user = _context.Users.Where(u => u.Id == userId).Include(u => u.Messages).First();
             
-            user.Messages.Add(message);
-            _context.SaveChanges();
+        //    user.Messages.Add(message);
+        //    _context.SaveChanges();
 
-            return Redirect($"/users/details/{user.Id}");
-        }
+        //    return Redirect($"/users/details/{user.Id}");
+        //}
     }
 }
